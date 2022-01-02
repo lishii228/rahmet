@@ -1,7 +1,29 @@
+def hhh(x):
+c=[]
+for k in range(len(x)):
+	c.append(htable(x[k]))
+return c
+
+
+def htable(let):
+	if let=='х':
+		return 11
+	if let== 'а':
+		return 12
+	if let== 'b':
+		return 13
+	if let== 'a':
+		return 14
+	else:
+		return int(let)
+
+
 def hash(pattern, Q):
+
+
 	h=0
 	for i in range(len(pattern)):
-		h=(h*13+int(pattern[i]))%Q
+		h=(h*13+htable(pattern[i]))%Q
 	return h
 
 def robcarp(word,pattern):
@@ -10,13 +32,17 @@ def robcarp(word,pattern):
 	n=len(pattern)
 	tb=[]
 	m=hash(word[0:n],Q)
+	word=hhh(word)
+
+	if word==[]:
+		return []
 
 
 	for k in range(len(word)-n):
-		if hash(word[k:k+n],Q)==q :
+		if m==q :
 			tb.append(k)
 		m=((m-int(word[k])*(13**(n-1)))*13+int(word[k+n]))%Q
 	return tb
 
-i=robcarp('1259130123509743185942493578955781254671381765745','2')
+i=robcarp('bababab','bab')
 print(i)
