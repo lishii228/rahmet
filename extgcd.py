@@ -15,14 +15,14 @@ def gcd(a,b):
 
 def extgcd(a,b):
 	if a==1:
-		return [1,0]
+		return (1,0)
 	if b==1:
-		return [0,1]
+		return (0,1)
 	if gcd(a,b)!=1 :
 		return [extgcd(a//gcd(a,b),b//gcd(a,b))[0] ,extgcd(a//gcd(a,b),b//gcd(a,b))[1]]
 	if b>a:
-		return [extgcd(b,a)[1] ,extgcd(b,a)[0]]
-	return [extgcd(a%b ,b)[0],extgcd(a%b,b)[1]-(a//b)*extgcd(a%b,b)[0]]
+		return (extgcd(b,a)[1] ,extgcd(b,a)[0])
+	return (extgcd(a%b ,b)[0],extgcd(a%b,b)[1]-(a//b)*extgcd(a%b,b)[0])
 
 print(extgcd(22,121))
 
