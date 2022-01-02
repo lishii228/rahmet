@@ -1,6 +1,8 @@
 def prime(p):
 	if p==2:
 		return True
+	if p==4:
+		return False
 	a=list(range(2,p+1))
 	b=[2]
 	for i in range(p+1):
@@ -13,6 +15,7 @@ def prime(p):
 		return True
 	else:
 		return False
-print(prime(107))
 
 
+for k in range(1,1000):
+	print([k,prime(k)])
